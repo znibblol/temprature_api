@@ -7,7 +7,7 @@ const ip = "10.8.40.234"
 
 // create routes
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello World!!!');
 });
 
 app.get('/about', (req, res) => {
