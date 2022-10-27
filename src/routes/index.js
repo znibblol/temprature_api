@@ -40,7 +40,7 @@ router.post('/add', (req, res) => {
     const newData = new SensorData(req.body, dateTime);
     newData.save()
     .then(response => {
-        res.status(401);
+        res.status(201);
         res.json({success: true,
             data: response
         });
