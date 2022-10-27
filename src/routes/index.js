@@ -15,24 +15,26 @@ router.get('/', (req, res) => {
 
 
 // Use only for removing test data
-// router.get('/deleteAll', (req, res) => {
-//     const data = SensorData.find({}, (err, data) => {
-//         if(err) {
-//             consol.log(err);
-//         } else {
-//             const id_arr = data.map(element => element._id);
-//             id_arr.forEach(element => {
-//                 SensorData.deleteOne({_id: element}, (err) => {
-//                     if(err) {
-//                         console.log(err);
-//                     } else {
-//                         console.log("Deleted");
-//                     }
-//                 });
-//             });
-//         }
-//     });
-// });
+router.get('/deleteAll', (req, res) => {
+    const data = SensorData.find({}, (err, data) => {
+        if(err) {
+            consol.log(err);
+        } else {
+            const id_arr = data.map(element => element._id);
+            id_arr.forEach(element => {
+                SensorData.deleteOne({_id: element}, (err) => {
+                    if(err) {
+                        console.log(err);
+                    } else {
+                        console.log("Deleted");
+                    }
+                });
+            });
+        }
+    });
+}).then(response => {
+    res.json({success: true, message: "Deleted all data"});
+});
 
 router.post('/add', (req, res) => {
     const dateTime = new Date(Date.now()).toISOString();
