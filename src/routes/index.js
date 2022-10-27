@@ -45,6 +45,7 @@ router.post('/add', (req, res) => {
         });
     })
     .catch(err => {
+        res.status(500);
         res.json({success: false,
             message: err.message
         });
