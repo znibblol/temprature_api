@@ -31,10 +31,9 @@ router.get('/deleteAll', (req, res) => {
                 });
             });
         }
-    });
-}).then(response => {
-    res.json({success: true, message: "Deleted all data"});
-});
+    }).then(response => {
+        res.json({success: true, message: "Deleted all data"});
+    })});
 
 router.post('/add', (req, res) => {
     const dateTime = new Date(Date.now()).toISOString();
