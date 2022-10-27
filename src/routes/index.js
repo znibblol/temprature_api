@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
     });
 });
 
+
 // Use only for removing test data
 // router.get('/deleteAll', (req, res) => {
 //     const data = SensorData.find({}, (err, data) => {
