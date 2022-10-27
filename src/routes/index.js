@@ -36,8 +36,9 @@ router.get('/deleteAll', (req, res) => {
     })});
 
 router.post('/add', (req, res) => {
+    const {dev_id, location, temp, hum} = req.body;
     const dateTime = new Date(Date.now()).toISOString();
-    const newData = new SensorData(req.body, dateTime);
+    const newData = new SensorData({dev_id: dev_id, location: location, temp: temp, hum: hum, time: dateTime});
     newData.save()
     .then(response => {
         res.status(201);
